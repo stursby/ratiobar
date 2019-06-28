@@ -5,32 +5,56 @@
   <meta charset="UTF-8">
   <title>RatioBar</title>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .copied {
+      transform: translateY(100%);
+      transition: all 300ms;
+    }
+
+    .copied.show {
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body>
-  <div id="app" class="flex h-screen">
-    <div class="m-3">
-      <input type="text"
-        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
-        v-model="a">
+  <div id="app">
+    <div class="flex h-screen">
+      <div class="m-3">
+        <input type="number"
+          class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+          @dblclick="copyToClipboard" v-model="a">
+      </div>
+      <div class="flex items-center">:</div>
+      <div class="m-3">
+        <input type="number"
+          class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+          @dblclick="copyToClipboard" v-model="b">
+      </div>
+      <div class="flex items-center">=</div>
+      <div class="m-3">
+        <input type="number"
+          class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+          @dblclick="copyToClipboard" v-model="c">
+      </div>
+      <div class="flex items-center">:</div>
+      <div class="m-3">
+        <input type="number"
+          class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+          @dblclick="copyToClipboard" v-model="d">
+      </div>
     </div>
-    <div class="flex items-center">:</div>
-    <div class="m-3">
-      <input type="text"
-        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
-        v-model="b">
-    </div>
-    <div class="flex items-center">=</div>
-    <div class="m-3">
-      <input type="text"
-        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
-        v-model="c">
-    </div>
-    <div class="flex items-center">:</div>
-    <div class="m-3">
-      <input type="text"
-        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
-        v-model="d">
+    <div ref="copied"
+      class="copied absolute top-0 left-0 h-screen w-screen bg-green-500 flex items-center justify-center">
+      <p class="text-white">
+        Copied to Clipboard!
+      </p>
     </div>
   </div>
 
@@ -48,6 +72,15 @@
       computed: {
         d() {
           return (this.c * this.b) / this.a
+        }
+      },
+      methods: {
+        copyToClipboard() {
+          document.execCommand('copy')
+          this.$refs.copied.classList.add('show')
+          setTimeout(() => {
+            this.$refs.copied.classList.remove('show')
+          }, 1500)
         }
       }
     })

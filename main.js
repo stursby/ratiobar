@@ -11,7 +11,8 @@ const mb = menubar({
     height: h,
     minHeight: h,
     maxHeight: h
-  }
+  },
+  alwaysOnTop: process.env.NODE_ENV === 'dev' ? true : false
 })
 
 mb.on('ready', () => {

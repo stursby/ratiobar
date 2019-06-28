@@ -4,7 +4,7 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "dev": "./node_modules/.bin/electron .",
+    "dev": "NODE_ENV=dev ./node_modules/.bin/electron .",
     "build": "./node_modules/.bin/electron-packager . RatioBar"
   },
   "dependencies": {
