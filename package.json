@@ -1,0 +1,22 @@
+{
+  "name": "ratiobar",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "./node_modules/.bin/electron .",
+    "build": "./node_modules/.bin/electron-packager . RatioBar"
+  },
+  "dependencies": {
+    "menubar": "^6.0.5"
+  },
+  "devDependencies": {
+    "electron": "^5.0.6",
+    "electron-packager": "^14.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  }
+}

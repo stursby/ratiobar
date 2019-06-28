@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>RatioBar</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app" class="flex h-screen">
+    <div class="m-3">
+      <input type="text"
+        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+        v-model="a">
+    </div>
+    <div class="flex items-center">:</div>
+    <div class="m-3">
+      <input type="text"
+        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+        v-model="b">
+    </div>
+    <div class="flex items-center">=</div>
+    <div class="m-3">
+      <input type="text"
+        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+        v-model="c">
+    </div>
+    <div class="flex items-center">:</div>
+    <div class="m-3">
+      <input type="text"
+        class="w-full h-full bg-gray-200 rounded text-center outline-none focus:shadow-outline focus:bg-blue-100"
+        v-model="d">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          a: 16,
+          b: 9,
+          c: 1280
+        }
+      },
+      computed: {
+        d() {
+          return (this.c * this.b) / this.a
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
