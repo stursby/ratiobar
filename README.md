@@ -2,7 +2,7 @@
 
 > A little mac menubar app for calculating ratios.
 
-![screenshot](.github/ratiobar.png)
+![demo](.github/demo.gif)
 
 ## Dev
 
