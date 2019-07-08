@@ -29,7 +29,7 @@ yarn dev
 
 ## Build
 
-Build the app uisng [Electron Packager](https://github.com/electron-userland/electron-packager).
+Build the app uisng [Electron Builder](https://github.com/electron-userland/electron-builder).
 
 ```
 yarn build
